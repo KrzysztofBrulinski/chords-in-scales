@@ -17,6 +17,7 @@ const config = {
 			$types: "src/types",
 			$consts: "src/consts",
 			$assets: "src/assets",
+			$utils: "src/utils",
 		}
 	}
 };

@@ -6,57 +6,58 @@ export async function GET() {
 		});
 
 		const data = {
-			scales: [
-				"A",
-				"Am",
-				"A#",
-				"A#m",
-				"B",
-				"Bm",
-				"B#",
-				"B#m",
-				"C",
-				"Cm",
-				"C#",
-				"C#m",
-				"D",
-				"Dm",
-				"D#",
-				"D#m",
-				"E",
-				"Em",
-				"E#",
-				"E#m",
-				"F",
-				"Fm",
-				"F#",
-				"F#m",
-				"G",
-				"Gm",
-				"G#",
-				"G#m"
-			],
+			scales: {
+				moll: [
+					"Am",
+					"Bbm",
+					"Bm",
+					"Cm",
+					"C#m",
+					"Dm",
+					"D#m",
+					"Em",
+					"Fm",
+					"F#m",
+					"Gm",
+					"G#m",
+				],
+
+				dur: [
+					"A",
+					"Bb",
+					"B",
+					"C",
+					"C#",
+					"D",
+					"Eb",
+					"E",
+					"F",
+					"F#",
+					"G",
+					"Ab",
+				],
+			}
 		};
 
 		await apiTimeoutSimulation();
 
 		return new Response(JSON.stringify(data), {
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'cache-control': 'public, max-age=3600'
 			}
 		});
 
 	} catch (error) {
-		if (error instanceof Error) {
-			const errorResponse = {
-				scales: [],
-				error
+		console.log(error);
+		return new Response(JSON.stringify({
+			scales: [],
+			error
+		}), {
+			headers: {
+				'Content-Type': 'application/json',
+				'cache-control': 'public, max-age=3600'
 			}
-			return new Response(JSON.stringify(errorResponse), {
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			});
-		}
+		});
 	}
 }

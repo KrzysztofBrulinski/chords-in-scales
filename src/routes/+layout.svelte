@@ -8,4 +8,6 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet" />
 </svelte:head>
-<slot />
+<div class="max-w-7xl mx-auto px-4">
+	<slot />
+</div>
