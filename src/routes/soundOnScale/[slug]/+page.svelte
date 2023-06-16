@@ -10,7 +10,9 @@
 
 <div class="flex flex-col justify-center items-center w-full">
 	{#if chordsInScale}
-		<h2 class="text-[#f99f14] text-[36px] text-center mt-4">Chords in scale {$page.params.slug}</h2>
+		<h2 class="text-[#f99f14] text-[36px] text-center mt-4">
+			Chords in key of {$page.params.slug}
+		</h2>
 		<div class="flex flex-col md:flex-row justify-center items-center gap-4 md:mt-20 w-full">
 			{#each chordsInScale as chord}
 				<div

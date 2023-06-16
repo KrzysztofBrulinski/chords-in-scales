@@ -1,46 +1,20 @@
-import type { ArrayElement } from "./utils";
+export type MollSound = "Am" | "Bbm" | "Bm" | "Cm" | "Cismoll" | "Dm" | "Dismoll" | "Em" | "Fm" | "Fismoll" | "Gm" | "Gismoll";
+
+export type DurSound = "A" | "Bb" | "B" | "C" | "Cis" | "D" | "Eb" | "E" | "F" | "Fis" | "G" | "Ab";
 
 export type Scales = {
     scales: {
-        moll: Sounds[];
-        dur: Sounds[];
+        moll: MollSound[];
+        dur: DurSound[];
     };
     error?: Error;
 };
 
 export type PostReqBody = {
-    scaleKey: ArrayElement<Sounds>
+    scaleKey: MollSound | DurSound;
 };
 
 export type SoundOnScaleResponse = {
-    chordsInScale: ArrayElement<Sounds>[];
+    chordsInScale: (MollSound | DurSound)[];
     error?: Error;
 };
-
-export type Sounds = [
-    "Am",
-    "Bbm",
-    "Bm",
-    "Cm",
-    "C#m",
-    "Dm",
-    "D#m",
-    "Em",
-    "Fm",
-    "F#m",
-    "Gm",
-    "G#m",
-    "A",
-    "Bb",
-    "B",
-    "C",
-    "C#",
-    "D",
-    "Eb",
-    "E",
-    "F",
-    "F#",
-    "G",
-    "Ab",
-];
-
