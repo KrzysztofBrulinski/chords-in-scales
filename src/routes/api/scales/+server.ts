@@ -1,63 +1,22 @@
-export async function GET() {
+import { AllScales } from "$data";
+import { apiFakeTimeout } from "$utils/apiFakeTimeout";
+import { json } from "@sveltejs/kit";
+
+export async function GET({ setHeaders }) {
 	try {
-		const time = Math.floor((Math.random() * 2) + 1) * 1000;
-		const apiTimeoutSimulation = () => new Promise((resolve) => {
-			setTimeout(() => resolve(""), time);
+		await apiFakeTimeout();
+
+		setHeaders({
+			"cache-control": "max-age=604800",
 		});
 
-		const data = {
-			scales: {
-				moll: [
-					"Am",
-					"Bbm",
-					"Bm",
-					"Cm",
-					"Cismoll",
-					"Dm",
-					"Dismoll",
-					"Em",
-					"Fm",
-					"Fismoll",
-					"Gm",
-					"Gismoll",
-				],
-
-				dur: [
-					"A",
-					"Bb",
-					"B",
-					"C",
-					"Cis",
-					"D",
-					"Eb",
-					"E",
-					"F",
-					"Fis",
-					"G",
-					"Ab",
-				],
-			}
-		};
-
-		await apiTimeoutSimulation();
-
-		return new Response(JSON.stringify(data), {
-			headers: {
-				'Content-Type': 'application/json',
-				'cache-control': 'public, max-age=3600'
-			}
-		});
+		return json(AllScales);
 
 	} catch (error) {
 		console.log(error);
-		return new Response(JSON.stringify({
+		return json({
 			scales: [],
 			error
-		}), {
-			headers: {
-				'Content-Type': 'application/json',
-				'cache-control': 'public, max-age=3600'
-			}
 		});
 	}
 }

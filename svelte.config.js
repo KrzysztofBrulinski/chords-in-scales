@@ -18,6 +18,8 @@ const config = {
 			$consts: "src/consts",
 			$assets: "src/assets",
 			$utils: "src/utils",
+			$stores: "src/stores",
+			$data: "src/data",
 		}
 	}
 };

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Guitar from '$assets/svg/Guitar.svelte';
 	import CategoryTile from '$components/atoms/CategoryTile.svelte';
-	import { routes } from '$consts/routes';
+	import { routes } from '$consts';
 	import type { DurSound, MollSound } from '$types';
 
 	export let sounds: DurSound[] | MollSound[] | undefined;

@@ -3,20 +3,12 @@ import type { PageLoad } from "./$types";
 
 export const load = (async ({ url, fetch }) => {
     try {
-        const res = await fetch(`${url.origin}/api/scales`,
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'cache-control': 'public, max-age=3600'
-                },
-            }
-        );
+        const res = await fetch(`${url.origin}/api/scales`);
         const data = await res.json() as Scales;
 
         if (data.error) throw new Error(data.error.message);
 
         return {
-            maxage: 3600,
             scales: data.scales,
         };
     } catch (error) {
