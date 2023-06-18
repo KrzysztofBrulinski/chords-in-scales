@@ -10,7 +10,7 @@
 
 <h1 class="text-mainColor text-[36px] text-center">Welcome to SvelteKit Music Scales finder</h1>
 
-<div class="mx-auto grid gap-8 sm:grid-cols-2 grid-cols-1 px-5">
+<div class="mx-auto grid gap-8 sm:grid-cols-2 grid-cols-1">
 	<Scales title={'Dur'} sounds={dur} />
 	<Scales title={'Moll'} sounds={moll} />
 </div>

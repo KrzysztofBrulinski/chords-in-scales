@@ -17,7 +17,7 @@
 		<div class="flex flex-col md:flex-row justify-center items-center gap-4 md:mt-20 w-full">
 			{#each chordsInScale as chord}
 				<CategoryTile>
-					<p class="text-[24px]">{chord}</p>
+					<p class="text-[36px]">{chord}</p>
 				</CategoryTile>
 			{/each}
 		</div>

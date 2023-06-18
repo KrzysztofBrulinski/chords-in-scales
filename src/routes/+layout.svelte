@@ -20,6 +20,6 @@
 </svelte:head>
 
 <Header />
-<div class="w-full h-full max-w-7xl mx-auto px-4 pt-4">
+<div class="w-full h-full max-w-7xl mx-auto px-9 pt-4">
 	<slot />
 </div>

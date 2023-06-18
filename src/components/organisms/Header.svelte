@@ -3,8 +3,11 @@
 	import { headerScrollThresholdInPx, routes } from '$consts';
 	import DarkModeToggle from '$components/molecules/DarkModeToggle.svelte';
 	import { isDarkMode } from '$stores/darkMode';
+	import { timeFormatter } from '$utils/timeFormat';
+	import { time } from '$stores/time';
 
 	let scrollY = 0;
+	$: formattedTime = timeFormatter.format($time);
 </script>
 
 <svelte:window bind:scrollY />
@@ -18,7 +21,7 @@
 		<a href={routes.homepage}>
 			<Guitar className="w-10 h-10 fill-white" />
 		</a>
-
+		<p class={`${$isDarkMode ? 'text-white' : 'text-black'}`}>Time: {formattedTime}</p>
 		<DarkModeToggle />
 	</div>
 </header>
